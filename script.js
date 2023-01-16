@@ -57,53 +57,6 @@ getUrlsBtn.addEventListener("click", function () {
   htmlArea.value = "";
 
 
-  /*for (let i = 0; i < splitHTML.length; ++i) {
-  console.log(splitHTML[i]);
-  }*/
-
-  /*
-  for (let i = splitHTML.length - 1; i >= 0; --i) {
-    splitHTML[i] = splitHTML[i].split(".gif")[0];
-    if (splitHTML[i].length > 40) {
-      splitHTML.splice(i, 1)
-    } else {
-      splitHTML[i] = splitHTML[i].split("/")[0];
-      while (splitHTML[i].includes("/")) {
-        splitHTML[i] = splitHTML[i].split("/")[0];
-      }
-      //console.log(splitHTML[i])
-    }
-  }
-
-  splitHTML = uniq(splitHTML);
-  let arrLengthBeforeBefore = resArr.length;
-  resArr = resArr.concat(splitHTML);
-  getUrlsBtn.innerText = "add new links";
-  let gifNum = splitHTML.length;
-  document.getElementById("urlsNumberP").innerText = "found " + gifNum + " gif urls";
-  if (counterFind > 0) {
-    let arrLengthBefore = resArr.length;
-    resArr = uniq(resArr);
-    let arrLengthAfter = resArr.length;
-    let doublesNum = arrLengthBefore - arrLengthAfter;
-    let newNum = arrLengthAfter - arrLengthBeforeBefore;
-    document.getElementById("newLinksP").innerText = newNum + " new urls";
-    document.getElementById("doubleLinksP").innerText = doublesNum + " doubled urls (not added)";
-    document.getElementById("totalLinksP").innerText = arrLengthAfter + " total urls";
-  }
-  //console.log("gifs detected: " + gifNum);
-  // push to html
-  let resVal = "";
-  for (let i = 0; i < resArr.length; ++i) {
-    //console.log(resArr[i])
-    // generate url based on key
-    let url = "https://i.giphy.com/media/" + resArr[i] + "/giphy.gif";
-    resVal += url + '\n';
-  }
-  urlsArea.value = resVal;
-  htmlArea.value = "";
-  //
-*/
   function uniq(a) {
     var prims = {
       "boolean": {},
@@ -177,10 +130,7 @@ function isInViewport(element) {
 document.getElementsByTagName('img')
 document.addEventListener("keydown", (event) => {
   if (event.isComposing || event.keyCode === 76) {
-    /* MAYBE
-    imageSearch.scan_for_valid_images(document);
-    console.log(imageSearch.get_image_array().length + " images are there right now!");*/
-
+    // turn to white-mode
     document.body.style.backgroundColor = "rgb(255,255,255)";
     let p = document.getElementsByTagName("p");
     for (let i = 0; i < p.length; ++i) {
@@ -199,57 +149,7 @@ document.addEventListener("keydown", (event) => {
       a[i].style.color = "000";
     }
   }
-  // do something
 });
-
-/*var observer = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.target.dataSrc === "https://i.giphy.com/media/XbV2mrHs6ureBPUEuJ/giphy.gif") {
-        console.log(entry.intersectionRatio);
-      }
-      if (entry.intersectionRatio > 0.00) {
-        img = entry.target;
-        if (!img.hasAttribute('src')) {
-          console.log(img.dataSrc)
-          console.log('will load the image!!!');
-          img.setAttribute('src', img.dataSrc);
-        }
-      } else if (img.hasAttribute('src')) {
-        img.removeAttribute("src");
-      }
-    });
-  }, {}
-)*/
-
-var imageSearch = {
-  image_array: {},
-  valid_image_nodes: ["DIV", "P", "SECTION", "SPAN"],
-
-  scan_for_valid_images: function (node) {
-    if (node.nodeType === 1) {
-      if (node.nodeName === "IMG") {
-        this.image_array[node.getAttribute("src")] = true;
-      } else {
-        if (this.valid_image_nodes.indexOf(node.nodeName) !== -1) {
-          div_style = node.currentStyle || window.getComputedStyle(node, false);
-          if (div_style.backgroundImage !== "none") {
-            url = div_style.backgroundImage;
-            this.image_array[url.slice(4, url.indexOf(')'))] = true;
-          }
-        }
-      }
-    }
-    var children = node.childNodes;
-    for (var i = 0; i < children.length; i++) {
-      this.scan_for_valid_images(children[i]);
-    }
-  },
-
-  get_image_array: function () {
-    return Object.keys(this.image_array)
-  }
-}
 
 function deleteAndSetInitialGallery() {
   let cloneElm = document.getElementById("exampleGalleryElm").cloneNode(true);
