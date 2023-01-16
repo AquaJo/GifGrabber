@@ -9,4 +9,4 @@ A client-side solution for extracting multiple GIF URLs from Giphy without the n
 - Manual selection of images after extracting from HTML
 - Copy URLs to clipboard as easy to implement array
 - working clientside
-- Hosted on aquajo.me/Giphy-Extractor
+- Hosted on [aquajo.me/Giphy-Extractor](https://aquajo.me/Giphy-Extractor)
