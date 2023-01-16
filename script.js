@@ -4,7 +4,7 @@ let resArr = [];
 
 let exportOptions = document.getElementById("exportOptions");
 let galleryBtn = document.getElementById("galarySelectorBtn");
-getUrlsBtn.addEventListener("click", function() {
+getUrlsBtn.addEventListener("click", function () {
   document.getElementById("secondSection").style.display = "block";
 
   // splitHTML temp; resArr all time
@@ -106,13 +106,13 @@ getUrlsBtn.addEventListener("click", function() {
 */
   function uniq(a) {
     var prims = {
-        "boolean": {},
-        "number": {},
-        "string": {}
-      },
+      "boolean": {},
+      "number": {},
+      "string": {}
+    },
       objs = [];
 
-    return a.filter(function(item) {
+    return a.filter(function (item) {
       var type = typeof item;
       if (type in prims)
         return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
@@ -126,10 +126,12 @@ getUrlsBtn.addEventListener("click", function() {
 })
 
 let checkBoxSelects = document.getElementById("flexCheckIndeterminate");
+let checkBoxPreviewMode = document.getElementById("flexCheckIndeterminate2");
 checkBoxSelects.checked = false;
 let galleryAll = document.getElementById("galleryAll");
 let checkDiv = document.getElementById("checkDiv");
-galleryBtn.addEventListener("click", function() {
+let checkDiv2 = document.getElementById("checkDiv2");
+galleryBtn.addEventListener("click", function () {
   exportDetailsDiv.style.display = "none";
   if (galleryBtn.innerText.includes("open") && resArr.length > 0) {
     galleryAll.style.display = "block";
@@ -142,6 +144,7 @@ galleryBtn.addEventListener("click", function() {
     galleryBtn.innerText = "close gallery selector";
     checkDiv.style.paddingLeft = "48px"; // ()
     checkDiv.style.display = "none";
+    checkDiv2.style.display = "none";
     updateGallery();
     window.scrollTo({
       top: (document.documentElement.scrollTop || document.body.scrollTop) + 335,
@@ -155,6 +158,7 @@ galleryBtn.addEventListener("click", function() {
     galleryBtn.innerText = "open gallery selector";
     checkDiv.style.paddingLeft = "50px"; // ()
     checkDiv.style.display = "block";
+    checkDiv2.style.display = "block";
     deleteAndSetInitialGallery();
   }
 });
@@ -180,19 +184,19 @@ document.addEventListener("keydown", (event) => {
     document.body.style.backgroundColor = "rgb(255,255,255)";
     let p = document.getElementsByTagName("p");
     for (let i = 0; i < p.length; ++i) {
-        p[i].style.color = "000";
+      p[i].style.color = "000";
     }
     let h4 = document.getElementsByTagName("h4");
     for (let i = 0; i < h4.length; ++i) {
-        h4[i].style.color = "000";
+      h4[i].style.color = "000";
     }
     let label = document.getElementsByTagName("label");
     for (let i = 0; i < label.length; ++i) {
-        label[i].style.color = "000";
+      label[i].style.color = "000";
     }
     let a = document.getElementsByTagName("a");
     for (let i = 0; i < a.length; ++i) {
-        a[i].style.color = "000";
+      a[i].style.color = "000";
     }
   }
   // do something
@@ -222,7 +226,7 @@ var imageSearch = {
   image_array: {},
   valid_image_nodes: ["DIV", "P", "SECTION", "SPAN"],
 
-  scan_for_valid_images: function(node) {
+  scan_for_valid_images: function (node) {
     if (node.nodeType === 1) {
       if (node.nodeName === "IMG") {
         this.image_array[node.getAttribute("src")] = true;
@@ -242,7 +246,7 @@ var imageSearch = {
     }
   },
 
-  get_image_array: function() {
+  get_image_array: function () {
     return Object.keys(this.image_array)
   }
 }
@@ -263,7 +267,7 @@ function updateGallery(mode) {
   // clone template for all urls and make specific changes
   for (let i = 0; i < resArr.length; ++i) {
     let cloneElm = document.getElementById("exampleGalleryElm").cloneNode(true);
-    cloneElm.children[1].dataSrc = "https://i.giphy.com/media/" + resArr[i] + "/giphy.gif";
+    cloneElm.children[1].dataSrc = checkBoxPreviewMode.checked ? "https://i.giphy.com/media/" + resArr[i] + "/giphy.gif" : "https://i.giphy.com/media/" + resArr[i] + "/giphy-preview.gif?rid=giphy-preview.webp&ct=g"; //"https://i.giphy.com/media/" + resArr[i] + "/giphy.gif";
     cloneElm.title = i;
     //console.log(cloneElm.children[0].children[0].dataSrc);
     cloneElm.style.display = "block";
@@ -284,7 +288,7 @@ function updateGallery(mode) {
       descElm.style.backgroundColor = "#019875";
     }
 
-    cloneElm.addEventListener("click", function() {
+    cloneElm.addEventListener("click", function () {
       let descElm = cloneElm.children[2];
       let descCol = window.getComputedStyle(descElm).backgroundColor;
       if (descCol === "rgb(184, 41, 61)") {
@@ -304,7 +308,7 @@ function updateGallery(mode) {
   let lastScrollTop = 0;
   let st;
 
-  document.addEventListener('scroll', function() {
+  document.addEventListener('scroll', function () {
     st = window.pageYOffset || document.documentElement.scrollTop;
     updateLoadingSituation("");
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
@@ -399,7 +403,7 @@ function updateGallery(mode) {
 let arrowUP = document.getElementById("arrowUP");
 let arrowDOWN = document.getElementById("arrowDOWN");
 
-arrowUP.addEventListener("click", function() {
+arrowUP.addEventListener("click", function () {
   window.scrollBy({
     top: elem0Top - 80,
     left: 0,
@@ -408,7 +412,7 @@ arrowUP.addEventListener("click", function() {
   blockScrollUpdate = "first";
 })
 
-arrowDOWN.addEventListener("click", function() {
+arrowDOWN.addEventListener("click", function () {
   window.scrollBy({
     top: elemLastBottom - (/*document.documentElement.clientHeight || */window.innerHeight) + 50,
     left: 0,
@@ -423,7 +427,7 @@ let endIndexInp = document.getElementById("endIndexInp");
 let selectionURLS;
 let returnSelectionUrlsBtn = document.getElementById("returnSelectionUrls");
 let exportDetailsDiv = document.getElementById("exportDetails");
-returnSelectionUrlsBtn.addEventListener("click", function() {
+returnSelectionUrlsBtn.addEventListener("click", function () {
   let resURLS = [];
   let resVal = "";
   let startInpVal = parseInt(startIndexInp.value);
@@ -444,7 +448,7 @@ returnSelectionUrlsBtn.addEventListener("click", function() {
   }
 })
 
-document.getElementById("copyNormUrls").addEventListener("click", function() {
+document.getElementById("copyNormUrls").addEventListener("click", function () {
   let urls = [];
   for (let i = 0; i < resArr.length; ++i) {
     urls.push("https://i.giphy.com/media/" + resArr[i] + "/giphy.gif");
@@ -452,13 +456,13 @@ document.getElementById("copyNormUrls").addEventListener("click", function() {
   navigator.clipboard.writeText(urls);
 })
 
-document.getElementById("copySelection").addEventListener("click", function() {
+document.getElementById("copySelection").addEventListener("click", function () {
   navigator.clipboard.writeText(selectionURLS);
 })
 
 let downloadBtn = document.getElementById("downloadSelectionUrls");
 let downloading = false;
-downloadBtn.addEventListener("click", async function() {
+downloadBtn.addEventListener("click", async function () {
   if (!downloading) {
     downloading = true;
     downloadBtn.innerText = "creating zip ..."
@@ -475,7 +479,7 @@ downloadBtn.addEventListener("click", async function() {
       compressionOptions: {
         level: 6
       }
-    }).then(function(content) {
+    }).then(function (content) {
       saveAs(content, "GiphyExtractorGifs.zip");
       downloading = false;
       downloadBtn.innerText = "download these gifs";

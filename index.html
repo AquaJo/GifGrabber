@@ -28,11 +28,11 @@
       </h1>
       <br>
       <h4 style="width:830px;">
-        Don't want to register for an api key by giphy for filtering max. 50 gifs of a keyword (beta-key) (I think). Just want to extract some urls of these gifs more automated, not for more complex api stuff. You might be at the right place. Extract Giphy Images relatively easy with this tool.
+        Don't want to register for a very limiting but free beta-api key by giphy? Just want to extract urls more automated or download multiple gifs at once, nothing in mind for more complex api stuff? You might be at the right place. Extract Giphy Images easily with this tool.
       </h4>
       <br>
       <p>
-        For them prefering light mode, press 'l'.
+        If you prefer light mode, press 'l'.
       </p>
 
       <p>
@@ -46,7 +46,7 @@
         Go to <a target="_blank" href="https://giphy.com/">Giphy</a> and search for a topic or go to any giphy-page with gifs you like.
       </p>
       <p style="width:830px">
-        Then open dev console with Strg+Shift+I. The trick is to copy the html of the page, then extract from it. You can scroll down the page to get even more gifs, but keep in mind the data quickly gets 'too' large for the input on this page. When you are finished copy the html.
+        Then open the dev console with Strg+Shift+I. The trick is to copy the html of the page, then extract urls from it. You can scroll down the page to get even more gifs, but keep in mind the data quickly gets 'too' large for the input on this page. When you are finished copy the html.
       </p>
       <p>
         Now paste this html data into this text-area and click "get image-links".
@@ -74,7 +74,13 @@
           <div id="checkDiv" style="float:left; padding-left:50px; margin-top:14px" class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" checked>
             <label class="form-check-label" for="flexCheckIndeterminate">
-              switch selection mode --> on => selects all / off => unselects all
+              select all
+            </label>
+          </div>
+          <div id="checkDiv2" style="float:left; padding-left:50px; margin-top:14px" class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate2" checked>
+            <label class="form-check-label" for="flexCheckIndeterminate2">
+              high quality previews
             </label>
           </div>
           <br>
@@ -110,7 +116,6 @@
               <div style="height:1px">
               </div>
             </div>
-
           </div>
           <div id="arrowDiv">
             <i id="arrowUP" class="material-symbols-outlined arrows">
@@ -124,8 +129,8 @@
         </div>
 
       </div>
-      <br><br><br>
     </div>
+    <br><br><br>
   </body>
 
 </html>
