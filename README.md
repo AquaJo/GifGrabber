@@ -7,9 +7,6 @@ A client-side solution for extracting multiple GIF URLs from Giphy without the n
 - Download selected GIFs as a zip file
 - Efficiently gather GIFs without the hassle of complex API functions
 - Manual selection of images after extracting from HTML
+- Copy URLs to clipboard as easy to implement array
+- working clientside
 - Hosted on aquajo.me/Giphy-Extractor
-
-## Tech Stack
-- HTML
-- CSS
-- JavaScript
