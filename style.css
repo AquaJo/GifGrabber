@@ -1,0 +1,133 @@
+.purple-border textarea {
+    border: 1px solid transparent #FF69B4;
+  }
+  
+  .purple-border .form-control:focus {
+    border: 2px solid transparent #FF69B4;
+    box-shadow: 0 0 0 0.2rem rgba(186, 104, 200, .25);
+  }
+  
+  .green-border-focus .form-control:focus {
+    border: 1px solid transparent #8bc34a;
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+  }
+  
+  
+  
+  
+  
+  
+  
+  div.gallery {
+    cursor: pointer;
+    margin: 5px;
+    border: 1px solid transparent white;
+    float: left;
+    width: 198px;
+    height: 200px;
+    transition: transform 150ms ease-in-out;
+  }
+  
+  .imgGallery {
+    height: 170px;
+    border-radius: 8px 20px 0px 0px;
+    background-size: cover;
+  }
+  
+  div.gallery:hover {
+    transform: scale(1.05);
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+    border-radius: 0px 0px 8px 20px;
+  }
+  
+
+
+  body {
+    text-align: center;
+    background-color:black;
+  }
+
+  p {
+    color:rgb(206, 206, 206);
+  }
+  h4 {
+    color:rgb(236, 236, 236);
+  }
+  label {
+    color:rgb(236, 236, 236);
+  }
+
+
+
+  
+  .content {
+    max-width: 833px;
+    /*border: 1px solid red;*/
+    margin: 0 auto;
+  }
+  
+  
+  #arrowUP {
+    top: calc(50vh - 70px);
+  }
+  
+  #arrowDOWN {
+    top: calc(50vh + 70px);
+  }
+  
+  .arrows {
+    position: fixed;
+    /* sticky ?? --> find solution that always some pix left of container --> move i's outside again ??, find solution for display block/ none ...*/
+    text-align: center;
+    font-size: 100px !important;
+    transition: 0.14s ease;
+    cursor: pointer;
+    margin-left: -950px;
+  }
+  
+  .arrows:hover {
+    transform: scale(1.2);
+  }
+  
+  #arrowDiv {
+    opacity: 0;
+  }
+  
+
+  body {
+    text-align:left;
+  }
+
+
+  
+
+
+  /* a-tag styling idea from here: https://codepen.io/geoffgraham/pen/bxEVEN*/
+  :root {
+    --mainaColor: #ff9800;
+  }
+a {
+    background: linear-gradient(to bottom, var(--mainaColor) 0%, var(--mainaColor) 100%);
+      background-position: 0 100%;
+      background-repeat: repeat-x;
+      background-size: 3px 3px;
+    color: rgb(206, 206, 206);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+    background-position: 0 100%;
+    background-size: auto 6px;
+    background-repeat: repeat-x;
+    text-decoration: none;
+  }
