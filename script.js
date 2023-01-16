@@ -233,18 +233,8 @@ function updateGallery(mode) {
         if (imageDestroyed.get(i) !== true && window.getComputedStyle(img).backgroundImage !== "") {
           imageDestroyed.set(i, true);
 
-          //console.log("deleted instance: " + i);
-
-          /*img.style.backgroundImage = "0";
-          img.style.background = "0";
-          img.style.backgroundImage = "none";
-          img.style.background = "none";
-          img.style.backgroundImage = '0';
-          img.style.background = '0';*/
+          //console.log("deleted instance: " + i)
           img.style.backgroundImage = 'none';
-          //img.style.background = 'none';
-          /*img.style.background = 'initial';
-          img.style.backgroundImage = 'initial';*/
 
           img.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
           if (blockScrollUpdate === true) {
