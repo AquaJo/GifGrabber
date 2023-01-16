@@ -1,4 +1,4 @@
-# Giphy-Extractor
+# Giphy - GifGrabber
 
 A client-side solution for extracting multiple GIF URLs from Giphy without the need for a restrictive beta API key.
 
