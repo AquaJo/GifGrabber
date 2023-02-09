@@ -343,13 +343,23 @@ document.getElementById("copyNormUrls").addEventListener("click", function () {
   for (let i = 0; i < resArr.length; ++i) {
     urls.push("https://i.giphy.com/media/" + resArr[i] + "/giphy.gif");
   }
-  navigator.clipboard.writeText(urls);
+  navigator.clipboard.writeText(toCopyFormatArray(urls));
 })
 
 document.getElementById("copySelection").addEventListener("click", function () {
-  navigator.clipboard.writeText(selectionURLS);
+  navigator.clipboard.writeText(toCopyFormatArray(selectionURLS));
 })
-
+function toCopyFormatArray(arr) {
+  let res = "";
+  for (let i = 0; i < arr.length; ++i) {
+    if (i == arr.length-1) {
+      res += "'"+arr[i]+"'";
+    } else {
+      res += "'"+arr[i]+"',";
+    }
+  }
+  return res;
+}
 let downloadBtn = document.getElementById("downloadSelectionUrls");
 let downloading = false;
 downloadBtn.addEventListener("click", async function () {
