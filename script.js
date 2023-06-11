@@ -17,7 +17,7 @@ getUrlsBtn.addEventListener("click", function () {
 
     if (splitHTML[i].substring(0, 25).includes("https://giphy.com/gifs/") && i !== 0) {
       splitHTML[i] = splitHTML[i].split("data-giphy-id=")[1];
-      splitHTML[i] = splitHTML[i].split("class=")[0]
+      splitHTML[i] = splitHTML[i].split("data-giphy-is-sticker=")[0] //  NEEDED TO CHANGE HERE BECAUSE OF GIPHY WEBSITE CHANGE --> PROPER SOLUTION FOR ATTRIBUTE READING NEEDED FOR BEING MORE STABLE
       splitHTML[i] = splitHTML[i].substring(1, splitHTML[i].length - 2);
       //console.log(splitHTML[i])
     } else {
@@ -52,6 +52,7 @@ getUrlsBtn.addEventListener("click", function () {
     // generate url based on key
     let url = "https://i.giphy.com/media/" + resArr[i] + "/giphy.gif";
     resVal += url + '\n';
+    
   }
   urlsArea.value = resVal;
   htmlArea.value = "";
