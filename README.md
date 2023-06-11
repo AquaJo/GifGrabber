@@ -1,7 +1,5 @@
 # Giphy - GifGrabber
 
-CURRENTLY NOT WORKING
-
 A client-side solution for extracting multiple GIF URLs from Giphy without the need for registering for a restrictive beta API key.
 
 ## Features
