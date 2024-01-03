@@ -9,4 +9,3 @@ A client-side solution for extracting multiple GIF URLs from Giphy without the n
 - Efficiently gather GIFs without writing own code
 - Manual selection of images after extracting from HTML
 - working clientside
-- Hosted on [aquajo.me/GifGrabber](https://aquajo.me/GifGrabber)
