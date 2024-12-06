@@ -94,12 +94,13 @@ galleryBtn.addEventListener("click", function () {
       updateGallery("selectAll");
     } else {
       selects = [];
+      updateGallery();
     }
     galleryBtn.innerText = "close gallery selector";
     checkDiv.style.paddingLeft = "48px"; // ()
     checkDiv.style.display = "none";
     checkDiv2.style.display = "none";
-    updateGallery();
+    
     window.scrollTo({
       top: (document.documentElement.scrollTop || document.body.scrollTop) + 335,
       behavior: 'smooth'
@@ -166,6 +167,7 @@ let selects = [];
 function updateGallery(mode) {
   let images = [];
   // clone template for all urls and make specific changes
+  alert("UPDATE")
   for (let i = 0; i < resArr.length; ++i) {
     let cloneElm = document.getElementById("exampleGalleryElm").cloneNode(true);
     cloneElm.children[1].dataSrc = checkBoxPreviewMode.checked ? "https://i.giphy.com/media/" + resArr[i] + "/giphy.gif" : "https://i.giphy.com/media/" + resArr[i] + "/giphy-preview.gif?rid=giphy-preview.webp&ct=g"; //"https://i.giphy.com/media/" + resArr[i] + "/giphy.gif";
